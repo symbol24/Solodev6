@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbj61clwsif2i"]
+
+[ext_resource type="Script" path="res://Code/UI/base_menu.gd" id="1_8a0gw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o0ikv"]
+bg_color = Color(0.121569, 0.121569, 0.121569, 1)
+
+[node name="base_menu" type="Control"]
+custom_minimum_size = Vector2(640, 360)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_8a0gw")
+id = "base_menu"
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(640, 360)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_o0ikv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "Base"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="main_hbox" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="bottom_hbox" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 0
+
+[node name="base_menu_btn_close" type="Button" parent="PanelContainer/VBoxContainer/bottom_hbox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 32)
+layout_mode = 2
+size_flags_vertical = 4
+text = "Close"
+
+[node name="spacer" type="Control" parent="PanelContainer/VBoxContainer/bottom_hbox"]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2

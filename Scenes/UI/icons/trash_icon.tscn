@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvk0ulu4qcur4"]
+
+[ext_resource type="TileSet" uid="uid://bwsc5kwxv5hxq" path="res://Data/debug_tileset.tres" id="1_kr8tw"]
+
+[node name="trash_icon" type="Control"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 3
+anchors_preset = 0
+
+[node name="icon" type="TileMapLayer" parent="."]
+position = Vector2(8, 8)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 25, 0, 7, 0, 0, 0)
+tile_set = ExtResource("1_kr8tw")

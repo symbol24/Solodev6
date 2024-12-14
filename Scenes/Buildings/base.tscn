@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=4 uid="uid://cvjoevt10hmwe"]
+
+[ext_resource type="Script" path="res://Code/Buildings/base.gd" id="1_0ywni"]
+[ext_resource type="TileSet" uid="uid://bwsc5kwxv5hxq" path="res://Data/debug_tileset.tres" id="1_hfpvt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bfyi2"]
+radius = 25.0
+
+[node name="Base" type="Area2D"]
+script = ExtResource("1_0ywni")
+
+[node name="visuals" type="TileMapLayer" parent="."]
+position = Vector2(-8, 0)
+tile_map_data = PackedByteArray("AAD///7/AAAQAAIAAAD/////AAAQAAMAAAAAAP7/AAARAAIAAAAAAP//AAARAAMAAAABAP7/AAASAAIAAAABAP//AAASAAMAAAA=")
+tile_set = ExtResource("1_hfpvt")
+
+[node name="entry_collider" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_bfyi2")

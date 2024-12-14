@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://dssynl2bmqhew"]
+
+[ext_resource type="Script" path="res://Code/Vessel/vessel.gd" id="1_foupp"]
+[ext_resource type="TileSet" uid="uid://bwsc5kwxv5hxq" path="res://Data/debug_tileset.tres" id="2_i3vab"]
+[ext_resource type="Script" path="res://Code/Vessel/tnd_collector.gd" id="3_tc1m6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r7q7b"]
+radius = 8.0
+height = 48.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3l874"]
+radius = 13.0
+height = 64.0
+
+[node name="Vessel" type="RigidBody2D"]
+gravity_scale = 0.0
+lock_rotation = true
+linear_damp = 1.0
+script = ExtResource("1_foupp")
+speed = 40.0
+
+[node name="vessel_sprite" type="TileMapLayer" parent="."]
+position = Vector2(-24, -8)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 4, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 0, 4, 0, 2, 0, 0, 0)
+tile_set = ExtResource("2_i3vab")
+
+[node name="move_collider" type="CollisionShape2D" parent="."]
+visible = false
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_r7q7b")
+
+[node name="tnd_collector" type="Area2D" parent="."]
+script = ExtResource("3_tc1m6")
+
+[node name="tnd_collector_collider" type="CollisionShape2D" parent="tnd_collector"]
+unique_name_in_owner = true
+visible = false
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_3l874")

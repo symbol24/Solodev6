@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpeukkrkjqpqy"]
+
+[ext_resource type="TileSet" uid="uid://bwsc5kwxv5hxq" path="res://Data/debug_tileset.tres" id="1_6taip"]
+
+[node name="debris_icon" type="Control"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -608.0
+offset_bottom = -328.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="icon" type="TileMapLayer" parent="."]
+position = Vector2(8, 8)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 23, 0, 0, 0)
+tile_set = ExtResource("1_6taip")
