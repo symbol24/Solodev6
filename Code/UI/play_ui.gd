@@ -10,9 +10,10 @@ func _ready() -> void:
 	Signals.TnDCollected.connect(_update_tnd)
 
 
-func _update_tnd(type:TnD.Type, value:int) -> void:
+func _update_tnd(type:TnD.Type, value:int, cap:int) -> void:
+	var new:String = str(value) + "/" + str(cap)
 	match type:
 		TnD.Type.TRASH:
-			trash_label.text = str(value)
+			trash_label.text = new
 		_:
-			debris_label.text = str(value)
+			debris_label.text = new

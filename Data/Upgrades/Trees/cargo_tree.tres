@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UpgradeTree" load_steps=7 format=3 uid="uid://dy1f7g4k7e4v3"]
+
+[ext_resource type="Script" path="res://Code/Upgrades/upgrade_tree.gd" id="1_368kb"]
+[ext_resource type="Script" path="res://Code/Upgrades/upgrade_data.gd" id="2_jdfjl"]
+[ext_resource type="Resource" uid="uid://rctdjhio17g4" path="res://Data/Upgrades/Trees/Cargo/cargo_1.tres" id="3_jflo4"]
+[ext_resource type="Resource" uid="uid://c758n4q4jy5u7" path="res://Data/Upgrades/Trees/Cargo/cargo_2.tres" id="4_cf1vj"]
+[ext_resource type="Resource" uid="uid://gvmj1niwcmk7" path="res://Data/Upgrades/Trees/Cargo/cargo_3.tres" id="5_b80ak"]
+[ext_resource type="Resource" uid="uid://d2nkfnsjs7j58" path="res://Data/Upgrades/Trees/Cargo/cargo_4.tres" id="6_wnwg4"]
+
+[resource]
+script = ExtResource("1_368kb")
+id = "cargo_tree"
+title = "Cargo Hold"
+text = "All upgrades that affect the cargo hold."
+tree = Array[ExtResource("2_jdfjl")]([ExtResource("3_jflo4"), ExtResource("4_cf1vj"), ExtResource("5_b80ak"), ExtResource("6_wnwg4")])

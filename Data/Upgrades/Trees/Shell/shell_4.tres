@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="UpgradeData" load_steps=6 format=3 uid="uid://baj8gpepy6us5"]
+
+[ext_resource type="Script" path="res://Code/Upgrades/cost_data.gd" id="1_welca"]
+[ext_resource type="Script" path="res://Code/Upgrades/upgrade_data.gd" id="2_evk6v"]
+[ext_resource type="Resource" uid="uid://dqordxe0s6ps8" path="res://Data/Upgrades/Trees/Shell/shell_3.tres" id="3_a31qu"]
+
+[sub_resource type="Resource" id="Resource_84rqm"]
+script = ExtResource("1_welca")
+type = 0
+amount = 6
+
+[sub_resource type="Resource" id="Resource_05pj5"]
+script = ExtResource("1_welca")
+type = 1
+amount = 8
+
+[resource]
+script = ExtResource("2_evk6v")
+id = "shell_4"
+title = "Premiuem Hull"
+text = "Reduces drag coeficient by %s %."
+costs = Array[ExtResource("1_welca")]([SubResource("Resource_84rqm"), SubResource("Resource_05pj5")])
+prerequisists = Array[ExtResource("2_evk6v")]([ExtResource("3_a31qu")])
+purchased = false
+data = {
+"extra_damp": -0.075
+}

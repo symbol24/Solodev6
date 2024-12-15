@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="UpgradeData" load_steps=6 format=3 uid="uid://0hqt87heil2x"]
+
+[ext_resource type="Script" path="res://Code/Upgrades/cost_data.gd" id="1_8w84e"]
+[ext_resource type="Script" path="res://Code/Upgrades/upgrade_data.gd" id="2_j3fxl"]
+[ext_resource type="Resource" uid="uid://dx3kpa43a4geh" path="res://Data/Upgrades/Trees/Battery/batt_03.tres" id="3_ejh1y"]
+
+[sub_resource type="Resource" id="Resource_0rn8f"]
+script = ExtResource("1_8w84e")
+type = 0
+amount = 5
+
+[sub_resource type="Resource" id="Resource_ay408"]
+script = ExtResource("1_8w84e")
+type = 1
+amount = 5
+
+[resource]
+script = ExtResource("2_j3fxl")
+id = "batt4"
+title = "LFP Li-Po"
+text = "Lithium Polymer battery. Increases battery life by %s %."
+costs = Array[ExtResource("1_8w84e")]([SubResource("Resource_0rn8f"), SubResource("Resource_ay408")])
+prerequisists = Array[ExtResource("2_j3fxl")]([ExtResource("3_ejh1y")])
+purchased = false
+data = {
+"extra_battery": 25,
+"extra_recharge_rate": 3
+}

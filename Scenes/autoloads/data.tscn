@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfggfia7pcrhk"]
+
+[ext_resource type="Script" path="res://Code/autoload/data.gd" id="1_toxf1"]
+[ext_resource type="Texture2D" uid="uid://cfinpmovpeg2i" path="res://Textures/UI/Icons/Upgrades/upgrade_icons_outline_normal.png" id="2_gywks"]
+[ext_resource type="Texture2D" uid="uid://bcwys02g0ykjn" path="res://Textures/UI/Icons/Upgrades/upgrade_icons_outline_hover.png" id="3_ada4i"]
+
+[node name="Data" type="Node"]
+script = ExtResource("1_toxf1")
+upgrade_outline_normal = ExtResource("2_gywks")
+upgrade_outline_hover = ExtResource("3_ada4i")

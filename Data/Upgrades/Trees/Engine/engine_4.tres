@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="UpgradeData" load_steps=6 format=3 uid="uid://cbqjhewpnwn17"]
+
+[ext_resource type="Script" path="res://Code/Upgrades/cost_data.gd" id="1_2s1r2"]
+[ext_resource type="Script" path="res://Code/Upgrades/upgrade_data.gd" id="2_wmk02"]
+[ext_resource type="Resource" uid="uid://dib0rtcjmeiyl" path="res://Data/Upgrades/Trees/Engine/engine_3.tres" id="3_fk5qy"]
+
+[sub_resource type="Resource" id="Resource_8kxh0"]
+script = ExtResource("1_2s1r2")
+type = 0
+amount = 10
+
+[sub_resource type="Resource" id="Resource_x27g7"]
+script = ExtResource("1_2s1r2")
+type = 1
+amount = 10
+
+[resource]
+script = ExtResource("2_wmk02")
+id = "engine_4"
+title = "Premium Engine"
+text = "Comes with the incredible speed increase of %s %."
+costs = Array[ExtResource("1_2s1r2")]([SubResource("Resource_8kxh0"), SubResource("Resource_x27g7")])
+prerequisists = Array[ExtResource("2_wmk02")]([ExtResource("3_fk5qy")])
+purchased = false
+data = {
+"extra_deplete_rate": 0.0,
+"extra_speed": 25.0
+}

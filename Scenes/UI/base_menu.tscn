@@ -1,6 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbj61clwsif2i"]
+[gd_scene load_steps=31 format=3 uid="uid://dbj61clwsif2i"]
 
 [ext_resource type="Script" path="res://Code/UI/base_menu.gd" id="1_8a0gw"]
+[ext_resource type="PackedScene" uid="uid://o2fore8ufsgj" path="res://Scenes/UI/Upgrades/upgrade_box.tscn" id="2_6e6cu"]
+[ext_resource type="Resource" uid="uid://drhc04v5jmyrn" path="res://Data/Upgrades/Trees/battery_upgrades.tres" id="2_adfvx"]
+[ext_resource type="Resource" uid="uid://3out1f6qsj6" path="res://Data/Upgrades/Trees/engine_tree.tres" id="3_42gw0"]
+[ext_resource type="Resource" uid="uid://caomhgtnmp6fq" path="res://Data/Upgrades/Trees/Battery/batt_01.tres" id="3_52qm1"]
+[ext_resource type="Resource" uid="uid://02eem5bo26fo" path="res://Data/Upgrades/Trees/Battery/batt_02.tres" id="4_j1yio"]
+[ext_resource type="Resource" uid="uid://dy1f7g4k7e4v3" path="res://Data/Upgrades/Trees/cargo_tree.tres" id="4_x1n3y"]
+[ext_resource type="Resource" uid="uid://dx3kpa43a4geh" path="res://Data/Upgrades/Trees/Battery/batt_03.tres" id="5_nomsn"]
+[ext_resource type="Resource" uid="uid://msi0d1o3152n" path="res://Data/Upgrades/Trees/shell_tree.tres" id="5_wq4dp"]
+[ext_resource type="Resource" uid="uid://0hqt87heil2x" path="res://Data/Upgrades/Trees/Battery/batt_04.tres" id="6_exdk4"]
+[ext_resource type="Resource" uid="uid://dfwdwjeoey233" path="res://Data/Upgrades/Trees/scoop_tree.tres" id="6_figj7"]
+[ext_resource type="Resource" uid="uid://yc6ty0yamad5" path="res://Data/Upgrades/Trees/Battery/heat_dissipator.tres" id="7_utowe"]
+[ext_resource type="Resource" uid="uid://b223cxivvyf0m" path="res://Data/Upgrades/Trees/Battery/batt_controller.tres" id="8_75ud0"]
+[ext_resource type="Resource" uid="uid://ba6ul0txl6j6s" path="res://Data/Upgrades/Trees/Engine/engine_1.tres" id="9_6erl1"]
+[ext_resource type="Resource" uid="uid://rctdjhio17g4" path="res://Data/Upgrades/Trees/Cargo/cargo_1.tres" id="9_ktmgo"]
+[ext_resource type="Resource" uid="uid://c63bllj6rs8g2" path="res://Data/Upgrades/Trees/Scoop/scoop_1.tres" id="9_qexc8"]
+[ext_resource type="Resource" uid="uid://q8rqr5sgpd3b" path="res://Data/Upgrades/Trees/Shell/shell_1.tres" id="9_s3wn1"]
+[ext_resource type="Resource" uid="uid://c758n4q4jy5u7" path="res://Data/Upgrades/Trees/Cargo/cargo_2.tres" id="10_b5wo7"]
+[ext_resource type="Resource" uid="uid://bxo2spsyvtvr5" path="res://Data/Upgrades/Trees/Engine/engine_2.tres" id="10_gbx3t"]
+[ext_resource type="Resource" uid="uid://c5defqfknvcli" path="res://Data/Upgrades/Trees/Shell/shell_2.tres" id="10_jagfp"]
+[ext_resource type="Resource" uid="uid://dr0h3b4gro44p" path="res://Data/Upgrades/Trees/Scoop/scoop_2.tres" id="10_tkbjf"]
+[ext_resource type="Resource" uid="uid://dhgcthn5gvvn" path="res://Data/Upgrades/Trees/Scoop/scoop_3.tres" id="11_0qb1x"]
+[ext_resource type="Resource" uid="uid://gvmj1niwcmk7" path="res://Data/Upgrades/Trees/Cargo/cargo_3.tres" id="11_2xyf4"]
+[ext_resource type="Resource" uid="uid://dib0rtcjmeiyl" path="res://Data/Upgrades/Trees/Engine/engine_3.tres" id="11_hx35w"]
+[ext_resource type="Resource" uid="uid://dqordxe0s6ps8" path="res://Data/Upgrades/Trees/Shell/shell_3.tres" id="11_kn4ty"]
+[ext_resource type="Resource" uid="uid://cbqjhewpnwn17" path="res://Data/Upgrades/Trees/Engine/engine_4.tres" id="12_26bre"]
+[ext_resource type="Resource" uid="uid://d2nkfnsjs7j58" path="res://Data/Upgrades/Trees/Cargo/cargo_4.tres" id="12_714p7"]
+[ext_resource type="Resource" uid="uid://c0qtwiqpmhl3s" path="res://Data/Upgrades/Trees/Scoop/scoop_4.tres" id="12_jbs4s"]
+[ext_resource type="Resource" uid="uid://baj8gpepy6us5" path="res://Data/Upgrades/Trees/Shell/shell_4.tres" id="12_woig6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o0ikv"]
 bg_color = Color(0.121569, 0.121569, 0.121569, 1)
@@ -12,6 +40,11 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_8a0gw")
+battery_tree = ExtResource("2_adfvx")
+engine_tree = ExtResource("3_42gw0")
+cargo_tree = ExtResource("4_x1n3y")
+hull_tree = ExtResource("5_wq4dp")
+scoop_tree = ExtResource("6_figj7")
 id = "base_menu"
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
@@ -36,6 +69,358 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 0
+
+[node name="spacer" type="Control" parent="PanelContainer/VBoxContainer/main_hbox"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="upgrades" type="TabContainer" parent="PanelContainer/VBoxContainer/main_hbox"]
+layout_mode = 2
+size_flags_horizontal = 3
+current_tab = 0
+
+[node name="Engine" type="Control" parent="PanelContainer/VBoxContainer/main_hbox/upgrades"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Line2D" type="Line2D" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Engine"]
+position = Vector2(122, 112)
+points = PackedVector2Array(0, 0, 70, 0)
+width = 2.0
+
+[node name="Line2D2" type="Line2D" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Engine"]
+position = Vector2(248, 112)
+points = PackedVector2Array(0, 0, 70, 0)
+width = 2.0
+
+[node name="Line2D3" type="Line2D" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Engine"]
+position = Vector2(371, 112)
+points = PackedVector2Array(0, 0, 70, 0)
+width = 2.0
+
+[node name="upgrade_box" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Engine" instance=ExtResource("2_6e6cu")]
+offset_left = 63.0
+offset_top = 62.0
+offset_right = 123.0
+offset_bottom = 162.0
+data = ExtResource("9_6erl1")
+
+[node name="upgrade_box2" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Engine" instance=ExtResource("2_6e6cu")]
+offset_left = 190.0
+offset_top = 63.0
+offset_right = 250.0
+offset_bottom = 163.0
+data = ExtResource("10_gbx3t")
+
+[node name="upgrade_box3" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Engine" instance=ExtResource("2_6e6cu")]
+offset_left = 314.0
+offset_top = 63.0
+offset_right = 374.0
+offset_bottom = 163.0
+data = ExtResource("11_hx35w")
+
+[node name="upgrade_box4" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Engine" instance=ExtResource("2_6e6cu")]
+offset_left = 437.0
+offset_top = 63.0
+offset_right = 497.0
+offset_bottom = 163.0
+data = ExtResource("12_26bre")
+
+[node name="engine_text" type="Label" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Engine"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 0
+offset_left = 100.0
+offset_top = 10.0
+offset_right = 460.0
+offset_bottom = 33.0
+theme_override_font_sizes/font_size = 8
+text = "lorem ipsum or something"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Battery" type="Control" parent="PanelContainer/VBoxContainer/main_hbox/upgrades"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Line2D6" type="Line2D" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Battery"]
+position = Vector2(176, 129)
+points = PackedVector2Array(-8, -30, -8, -17, -28, -17, -28, 24, -15, 24)
+width = 2.0
+
+[node name="Line2D7" type="Line2D" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Battery"]
+position = Vector2(296, 129)
+points = PackedVector2Array(-8, -30, -8, -17, -28, -17, -28, 24, -15, 24)
+width = 2.0
+
+[node name="Line2D" type="Line2D" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Battery"]
+position = Vector2(111, 96)
+points = PackedVector2Array(-11, 11, 25, 11, 25, -39, 51, -39)
+width = 2.0
+
+[node name="Line2D2" type="Line2D" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Battery"]
+position = Vector2(114, 106)
+points = PackedVector2Array(-14, 1, 22, 1, 22, 66, 47, 66)
+width = 2.0
+
+[node name="Line2D3" type="Line2D" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Battery"]
+position = Vector2(233, 56)
+points = PackedVector2Array(-14, 1, 48, 1)
+width = 2.0
+
+[node name="Line2D4" type="Line2D" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Battery"]
+position = Vector2(353, 56)
+points = PackedVector2Array(-14, 1, 48, 1)
+width = 2.0
+
+[node name="Line2D5" type="Line2D" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Battery"]
+position = Vector2(233, 170)
+points = PackedVector2Array(-14, 1, 48, 1)
+width = 2.0
+
+[node name="batt_1" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Battery" instance=ExtResource("2_6e6cu")]
+offset_left = 40.0
+offset_top = 56.0
+offset_right = 100.0
+offset_bottom = 156.0
+data = ExtResource("3_52qm1")
+
+[node name="batt_2" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Battery" instance=ExtResource("2_6e6cu")]
+offset_left = 160.0
+offset_top = 10.0
+offset_right = 220.0
+offset_bottom = 110.0
+data = ExtResource("4_j1yio")
+
+[node name="batt_3" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Battery" instance=ExtResource("2_6e6cu")]
+layout_mode = 2
+offset_left = 280.0
+offset_top = 10.0
+offset_right = 340.0
+offset_bottom = 110.0
+data = ExtResource("5_nomsn")
+
+[node name="batt_4" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Battery" instance=ExtResource("2_6e6cu")]
+offset_left = 400.0
+offset_top = 10.0
+offset_right = 460.0
+offset_bottom = 110.0
+data = ExtResource("6_exdk4")
+
+[node name="heat_disspator" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Battery" instance=ExtResource("2_6e6cu")]
+offset_left = 160.0
+offset_top = 120.0
+offset_right = 220.0
+offset_bottom = 220.0
+data = ExtResource("7_utowe")
+
+[node name="controller" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Battery" instance=ExtResource("2_6e6cu")]
+offset_left = 280.0
+offset_top = 120.0
+offset_right = 340.0
+offset_bottom = 220.0
+data = ExtResource("8_75ud0")
+
+[node name="batt_text" type="Label" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Battery"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 0
+offset_left = 351.0
+offset_top = 128.0
+offset_right = 551.0
+offset_bottom = 151.0
+theme_override_font_sizes/font_size = 8
+text = "lorem ipsum bitch"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Cargo" type="Control" parent="PanelContainer/VBoxContainer/main_hbox/upgrades"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Line2D" type="Line2D" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Cargo"]
+position = Vector2(122, 112)
+points = PackedVector2Array(0, 0, 70, 0)
+width = 2.0
+
+[node name="Line2D2" type="Line2D" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Cargo"]
+position = Vector2(248, 112)
+points = PackedVector2Array(0, 0, 70, 0)
+width = 2.0
+
+[node name="Line2D3" type="Line2D" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Cargo"]
+position = Vector2(371, 112)
+points = PackedVector2Array(0, 0, 70, 0)
+width = 2.0
+
+[node name="upgrade_box" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Cargo" instance=ExtResource("2_6e6cu")]
+offset_left = 63.0
+offset_top = 62.0
+offset_right = 123.0
+offset_bottom = 162.0
+data = ExtResource("9_ktmgo")
+
+[node name="upgrade_box2" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Cargo" instance=ExtResource("2_6e6cu")]
+offset_left = 190.0
+offset_top = 63.0
+offset_right = 250.0
+offset_bottom = 163.0
+data = ExtResource("10_b5wo7")
+
+[node name="upgrade_box3" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Cargo" instance=ExtResource("2_6e6cu")]
+offset_left = 314.0
+offset_top = 63.0
+offset_right = 374.0
+offset_bottom = 163.0
+data = ExtResource("11_2xyf4")
+
+[node name="upgrade_box4" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Cargo" instance=ExtResource("2_6e6cu")]
+offset_left = 437.0
+offset_top = 63.0
+offset_right = 497.0
+offset_bottom = 163.0
+data = ExtResource("12_714p7")
+
+[node name="cargo_text" type="Label" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Cargo"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 0
+offset_left = 100.0
+offset_top = 10.0
+offset_right = 460.0
+offset_bottom = 33.0
+theme_override_font_sizes/font_size = 8
+text = "lorem ipsum or something"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Hull" type="Control" parent="PanelContainer/VBoxContainer/main_hbox/upgrades"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="Line2D" type="Line2D" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Hull"]
+position = Vector2(122, 112)
+points = PackedVector2Array(0, 0, 70, 0)
+width = 2.0
+
+[node name="Line2D2" type="Line2D" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Hull"]
+position = Vector2(248, 112)
+points = PackedVector2Array(0, 0, 70, 0)
+width = 2.0
+
+[node name="Line2D3" type="Line2D" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Hull"]
+position = Vector2(371, 112)
+points = PackedVector2Array(0, 0, 70, 0)
+width = 2.0
+
+[node name="upgrade_box" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Hull" instance=ExtResource("2_6e6cu")]
+offset_left = 63.0
+offset_top = 62.0
+offset_right = 123.0
+offset_bottom = 162.0
+data = ExtResource("9_s3wn1")
+
+[node name="upgrade_box2" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Hull" instance=ExtResource("2_6e6cu")]
+offset_left = 190.0
+offset_top = 63.0
+offset_right = 250.0
+offset_bottom = 163.0
+data = ExtResource("10_jagfp")
+
+[node name="upgrade_box3" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Hull" instance=ExtResource("2_6e6cu")]
+offset_left = 314.0
+offset_top = 63.0
+offset_right = 374.0
+offset_bottom = 163.0
+data = ExtResource("11_kn4ty")
+
+[node name="upgrade_box4" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Hull" instance=ExtResource("2_6e6cu")]
+offset_left = 437.0
+offset_top = 63.0
+offset_right = 497.0
+offset_bottom = 163.0
+data = ExtResource("12_woig6")
+
+[node name="hull_text" type="Label" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Hull"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 0
+offset_left = 100.0
+offset_top = 10.0
+offset_right = 460.0
+offset_bottom = 33.0
+theme_override_font_sizes/font_size = 8
+text = "lorem ipsum or something"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Scoop" type="Control" parent="PanelContainer/VBoxContainer/main_hbox/upgrades"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 4
+
+[node name="Line2D" type="Line2D" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Scoop"]
+position = Vector2(122, 112)
+points = PackedVector2Array(0, 0, 70, 0)
+width = 2.0
+
+[node name="Line2D2" type="Line2D" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Scoop"]
+position = Vector2(248, 112)
+points = PackedVector2Array(0, 0, 70, 0)
+width = 2.0
+
+[node name="Line2D3" type="Line2D" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Scoop"]
+position = Vector2(371, 112)
+points = PackedVector2Array(0, 0, 70, 0)
+width = 2.0
+
+[node name="upgrade_box" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Scoop" instance=ExtResource("2_6e6cu")]
+offset_left = 63.0
+offset_top = 62.0
+offset_right = 123.0
+offset_bottom = 162.0
+data = ExtResource("9_qexc8")
+
+[node name="upgrade_box2" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Scoop" instance=ExtResource("2_6e6cu")]
+offset_left = 190.0
+offset_top = 63.0
+offset_right = 250.0
+offset_bottom = 163.0
+data = ExtResource("10_tkbjf")
+
+[node name="upgrade_box3" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Scoop" instance=ExtResource("2_6e6cu")]
+offset_left = 314.0
+offset_top = 63.0
+offset_right = 374.0
+offset_bottom = 163.0
+data = ExtResource("11_0qb1x")
+
+[node name="upgrade_box4" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Scoop" instance=ExtResource("2_6e6cu")]
+offset_left = 437.0
+offset_top = 63.0
+offset_right = 497.0
+offset_bottom = 163.0
+data = ExtResource("12_jbs4s")
+
+[node name="scoop_text" type="Label" parent="PanelContainer/VBoxContainer/main_hbox/upgrades/Scoop"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 0
+offset_left = 100.0
+offset_top = 10.0
+offset_right = 460.0
+offset_bottom = 33.0
+theme_override_font_sizes/font_size = 8
+text = "lorem ipsum or something"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="spacer2" type="Control" parent="PanelContainer/VBoxContainer/main_hbox"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
 
 [node name="bottom_hbox" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 48)

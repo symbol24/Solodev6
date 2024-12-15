@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="UpgradeData" load_steps=5 format=3 uid="uid://dhgcthn5gvvn"]
+
+[ext_resource type="Script" path="res://Code/Upgrades/cost_data.gd" id="1_d7atw"]
+[ext_resource type="Script" path="res://Code/Upgrades/upgrade_data.gd" id="2_fof23"]
+[ext_resource type="Resource" uid="uid://dr0h3b4gro44p" path="res://Data/Upgrades/Trees/Scoop/scoop_2.tres" id="3_ye0fw"]
+
+[sub_resource type="Resource" id="Resource_bmcr4"]
+script = ExtResource("1_d7atw")
+type = 1
+amount = 4
+
+[resource]
+script = ExtResource("2_fof23")
+id = "scoop_3"
+title = "Advanced Scoop"
+text = "Increases scoop range by %s %."
+costs = Array[ExtResource("1_d7atw")]([SubResource("Resource_bmcr4")])
+prerequisists = Array[ExtResource("2_fof23")]([ExtResource("3_ye0fw")])
+purchased = false
+data = {
+"height": 2,
+"radius": 2
+}

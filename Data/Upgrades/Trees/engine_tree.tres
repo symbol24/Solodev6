@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UpgradeTree" load_steps=7 format=3 uid="uid://3out1f6qsj6"]
+
+[ext_resource type="Script" path="res://Code/Upgrades/upgrade_tree.gd" id="1_fhcbq"]
+[ext_resource type="Script" path="res://Code/Upgrades/upgrade_data.gd" id="2_scaj4"]
+[ext_resource type="Resource" uid="uid://ba6ul0txl6j6s" path="res://Data/Upgrades/Trees/Engine/engine_1.tres" id="3_cbd0t"]
+[ext_resource type="Resource" uid="uid://bxo2spsyvtvr5" path="res://Data/Upgrades/Trees/Engine/engine_2.tres" id="4_mpb1f"]
+[ext_resource type="Resource" uid="uid://dib0rtcjmeiyl" path="res://Data/Upgrades/Trees/Engine/engine_3.tres" id="5_eqwka"]
+[ext_resource type="Resource" uid="uid://cbqjhewpnwn17" path="res://Data/Upgrades/Trees/Engine/engine_4.tres" id="6_mk32i"]
+
+[resource]
+script = ExtResource("1_fhcbq")
+id = "engine_tree"
+title = "Engines"
+text = "All upgrades that affect the engine."
+tree = Array[ExtResource("2_scaj4")]([ExtResource("3_cbd0t"), ExtResource("4_mpb1f"), ExtResource("5_eqwka"), ExtResource("6_mk32i")])

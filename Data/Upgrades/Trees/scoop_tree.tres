@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UpgradeTree" load_steps=7 format=3 uid="uid://dfwdwjeoey233"]
+
+[ext_resource type="Script" path="res://Code/Upgrades/upgrade_tree.gd" id="1_w5tf0"]
+[ext_resource type="Script" path="res://Code/Upgrades/upgrade_data.gd" id="2_vw10q"]
+[ext_resource type="Resource" uid="uid://c63bllj6rs8g2" path="res://Data/Upgrades/Trees/Scoop/scoop_1.tres" id="3_3iox8"]
+[ext_resource type="Resource" uid="uid://dr0h3b4gro44p" path="res://Data/Upgrades/Trees/Scoop/scoop_2.tres" id="4_oe1gh"]
+[ext_resource type="Resource" uid="uid://dhgcthn5gvvn" path="res://Data/Upgrades/Trees/Scoop/scoop_3.tres" id="5_uwda7"]
+[ext_resource type="Resource" uid="uid://c0qtwiqpmhl3s" path="res://Data/Upgrades/Trees/Scoop/scoop_4.tres" id="6_f0smv"]
+
+[resource]
+script = ExtResource("1_w5tf0")
+id = "scoop_tree"
+title = "Scoop"
+text = "All upgrades that affect the trash and debris scoop."
+tree = Array[ExtResource("2_vw10q")]([ExtResource("3_3iox8"), ExtResource("4_oe1gh"), ExtResource("5_uwda7"), ExtResource("6_f0smv")])

@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="UpgradeData" load_steps=6 format=3 uid="uid://c758n4q4jy5u7"]
+
+[ext_resource type="Script" path="res://Code/Upgrades/cost_data.gd" id="1_pnqmc"]
+[ext_resource type="Script" path="res://Code/Upgrades/upgrade_data.gd" id="2_ieqa4"]
+[ext_resource type="Resource" uid="uid://rctdjhio17g4" path="res://Data/Upgrades/Trees/Cargo/cargo_1.tres" id="3_i38vy"]
+
+[sub_resource type="Resource" id="Resource_awvcs"]
+script = ExtResource("1_pnqmc")
+type = 0
+amount = 1
+
+[sub_resource type="Resource" id="Resource_4222p"]
+script = ExtResource("1_pnqmc")
+type = 1
+amount = 2
+
+[resource]
+script = ExtResource("2_ieqa4")
+id = "cargo_2"
+title = "Intermediate Cargo Hold"
+text = "Increases space for %s trash and debris. Reduces speed by %s %, while increasing drag by %s %."
+costs = Array[ExtResource("1_pnqmc")]([SubResource("Resource_awvcs"), SubResource("Resource_4222p")])
+prerequisists = Array[ExtResource("2_ieqa4")]([ExtResource("3_i38vy")])
+purchased = false
+data = {
+"extra_damp": 0.1,
+"extra_debris_cap": 2,
+"extra_speed": -5.0,
+"extra_trash_cap": 2
+}

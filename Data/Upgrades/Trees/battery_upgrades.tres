@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UpgradeTree" load_steps=9 format=3 uid="uid://drhc04v5jmyrn"]
+
+[ext_resource type="Script" path="res://Code/Upgrades/upgrade_tree.gd" id="1_yfsxu"]
+[ext_resource type="Script" path="res://Code/Upgrades/upgrade_data.gd" id="2_goboc"]
+[ext_resource type="Resource" uid="uid://caomhgtnmp6fq" path="res://Data/Upgrades/Trees/Battery/batt_01.tres" id="3_gi2ih"]
+[ext_resource type="Resource" uid="uid://02eem5bo26fo" path="res://Data/Upgrades/Trees/Battery/batt_02.tres" id="4_bgcj0"]
+[ext_resource type="Resource" uid="uid://dx3kpa43a4geh" path="res://Data/Upgrades/Trees/Battery/batt_03.tres" id="5_c6hel"]
+[ext_resource type="Resource" uid="uid://0hqt87heil2x" path="res://Data/Upgrades/Trees/Battery/batt_04.tres" id="6_x2q01"]
+[ext_resource type="Resource" uid="uid://yc6ty0yamad5" path="res://Data/Upgrades/Trees/Battery/heat_dissipator.tres" id="7_kx25k"]
+[ext_resource type="Resource" uid="uid://b223cxivvyf0m" path="res://Data/Upgrades/Trees/Battery/batt_controller.tres" id="8_e6xf5"]
+
+[resource]
+script = ExtResource("1_yfsxu")
+id = "battery_upgrades"
+title = "Batteries"
+text = "All upgrades that affect the battery."
+tree = Array[ExtResource("2_goboc")]([ExtResource("3_gi2ih"), ExtResource("4_bgcj0"), ExtResource("5_c6hel"), ExtResource("6_x2q01"), ExtResource("7_kx25k"), ExtResource("8_e6xf5")])

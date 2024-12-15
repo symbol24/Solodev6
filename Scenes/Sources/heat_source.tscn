@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://3jf344h6dlta"]
+
+[ext_resource type="Script" path="res://Code/Utilities/temp_source.gd" id="1_3jmot"]
+
+[node name="heat_source" type="Marker2D" groups=["temp_source"]]
+script = ExtResource("1_3jmot")
+starting_strength = 5
+increase_value = 1
+max_str = 100
+use_max_strength = false

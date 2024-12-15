@@ -1,0 +1,86 @@
+[gd_scene load_steps=6 format=3 uid="uid://o2fore8ufsgj"]
+
+[ext_resource type="Texture2D" uid="uid://cfinpmovpeg2i" path="res://Textures/UI/Icons/Upgrades/upgrade_icons_outline_normal.png" id="1_o7f03"]
+[ext_resource type="Script" path="res://Code/Upgrades/upgrade_box.gd" id="1_o8ssn"]
+[ext_resource type="Texture2D" uid="uid://c6x7eqhiitv40" path="res://Textures/UI/Icons/small_tnd_icons_trash.png" id="2_2hrwi"]
+[ext_resource type="Texture2D" uid="uid://bdoo6dr4jshtg" path="res://Textures/UI/Icons/Upgrades/upgrade_icons_temp.png" id="2_iw1qp"]
+[ext_resource type="Texture2D" uid="uid://bt4pcptl35vuq" path="res://Textures/UI/Icons/small_tnd_icons_debis.png" id="3_0sg7a"]
+
+[node name="upgrade_box" type="Control" groups=["upgrade_box"]]
+custom_minimum_size = Vector2(60, 100)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 60.0
+offset_bottom = 100.0
+script = ExtResource("1_o8ssn")
+
+[node name="costs" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(60, 10)
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 10.0
+theme_override_constants/separation = 0
+
+[node name="trash_icon" type="TextureRect" parent="costs"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+texture = ExtResource("2_2hrwi")
+
+[node name="trash_cost" type="Label" parent="costs"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 10)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 6
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="debris_icon" type="TextureRect" parent="costs"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+texture = ExtResource("3_0sg7a")
+
+[node name="debris_cost" type="Label" parent="costs"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 10)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 6
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="item_texture" type="TextureRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 80)
+layout_mode = 0
+offset_top = 10.0
+offset_right = 60.0
+offset_bottom = 90.0
+texture = ExtResource("2_iw1qp")
+
+[node name="outline" type="TextureRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 80)
+layout_mode = 0
+offset_top = 10.0
+offset_right = 60.0
+offset_bottom = 90.0
+texture = ExtResource("1_o7f03")
+
+[node name="title" type="Label" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 10)
+layout_mode = 0
+offset_top = 90.0
+offset_right = 60.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 6
+text = "title here"
+horizontal_alignment = 1
+vertical_alignment = 1

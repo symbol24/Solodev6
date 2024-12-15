@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UpgradeData" load_steps=5 format=3 uid="uid://02eem5bo26fo"]
+
+[ext_resource type="Script" path="res://Code/Upgrades/cost_data.gd" id="1_qhhyy"]
+[ext_resource type="Script" path="res://Code/Upgrades/upgrade_data.gd" id="2_qvs06"]
+[ext_resource type="Resource" uid="uid://caomhgtnmp6fq" path="res://Data/Upgrades/Trees/Battery/batt_01.tres" id="3_shsw5"]
+
+[sub_resource type="Resource" id="Resource_0lgco"]
+script = ExtResource("1_qhhyy")
+type = 0
+amount = 1
+
+[resource]
+script = ExtResource("2_qvs06")
+id = "batt2"
+title = "NCA Li-Po"
+text = "Lithium Polymer battery. Increases battery life by %s %."
+costs = Array[ExtResource("1_qhhyy")]([SubResource("Resource_0lgco")])
+prerequisists = Array[ExtResource("2_qvs06")]([ExtResource("3_shsw5")])
+purchased = false
+data = {
+"extra_battery": 10
+}

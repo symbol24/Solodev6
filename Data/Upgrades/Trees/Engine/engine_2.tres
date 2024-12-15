@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="UpgradeData" load_steps=6 format=3 uid="uid://bxo2spsyvtvr5"]
+
+[ext_resource type="Script" path="res://Code/Upgrades/cost_data.gd" id="1_iecql"]
+[ext_resource type="Script" path="res://Code/Upgrades/upgrade_data.gd" id="2_rty5q"]
+[ext_resource type="Resource" uid="uid://ba6ul0txl6j6s" path="res://Data/Upgrades/Trees/Engine/engine_1.tres" id="3_igasv"]
+
+[sub_resource type="Resource" id="Resource_es85i"]
+script = ExtResource("1_iecql")
+type = 0
+amount = 3
+
+[sub_resource type="Resource" id="Resource_xh4qd"]
+script = ExtResource("1_iecql")
+type = 1
+amount = 3
+
+[resource]
+script = ExtResource("2_rty5q")
+id = "engine_2"
+title = "Intermediate Engine"
+text = "A faster engine by %s %, but comes at a cost of battery life drain of %s %."
+costs = Array[ExtResource("1_iecql")]([SubResource("Resource_es85i"), SubResource("Resource_xh4qd")])
+prerequisists = Array[ExtResource("2_rty5q")]([ExtResource("3_igasv")])
+purchased = false
+data = {
+"extra_deplete_rate": 2.0,
+"extra_speed": 10.0
+}

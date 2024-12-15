@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="UpgradeData" load_steps=3 format=3 uid="uid://q8rqr5sgpd3b"]
+
+[ext_resource type="Script" path="res://Code/Upgrades/cost_data.gd" id="1_bk6py"]
+[ext_resource type="Script" path="res://Code/Upgrades/upgrade_data.gd" id="2_gnmsg"]
+
+[resource]
+script = ExtResource("2_gnmsg")
+id = "shell_1"
+title = "Starter Hull"
+text = "Old reclaimed hull with a high drag coeficient."
+costs = Array[ExtResource("1_bk6py")]([])
+prerequisists = Array[ExtResource("2_gnmsg")]([])
+purchased = true

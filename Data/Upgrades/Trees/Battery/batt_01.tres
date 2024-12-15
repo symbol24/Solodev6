@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="UpgradeData" load_steps=3 format=3 uid="uid://caomhgtnmp6fq"]
+
+[ext_resource type="Script" path="res://Code/Upgrades/cost_data.gd" id="1_dr2ej"]
+[ext_resource type="Script" path="res://Code/Upgrades/upgrade_data.gd" id="2_thbdg"]
+
+[resource]
+script = ExtResource("2_thbdg")
+id = "batt1"
+title = "NiMH"
+text = "Nickle-Metal Hydride standard battery. Low recharge rate, low disipatiom rate."
+costs = Array[ExtResource("1_dr2ej")]([])
+prerequisists = Array[ExtResource("2_thbdg")]([])
+purchased = true
+data = {}

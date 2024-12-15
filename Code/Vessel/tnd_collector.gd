@@ -11,9 +11,20 @@ func _ready() -> void:
 
 func _area_entered(area:Area2D) -> void:
 	if area is TnD:
-		var collected:Dictionary = area.pickup()
-		if vessel == null:
-			vessel = get_parent()
-		vessel.add_tnd(collected["type"], collected["value"])
+		var collected:Dictionary = area.get_tnd_dict()
+		if vessel == null: vessel = get_parent()
+
+		var can_pickup:bool = false
+		match collected["type"]:
+			TnD.Type.TRASH:
+				if vessel.collected_trash < vessel.trash_capacity:
+					can_pickup = true
+			_:
+				if vessel.collected_debris < vessel.debris_capacity:
+					can_pickup = true
+
+		if can_pickup: 
+			vessel.add_tnd(collected["type"], collected["value"])
+			area.pickup()
 		
 		

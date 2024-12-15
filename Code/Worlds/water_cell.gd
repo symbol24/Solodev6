@@ -7,7 +7,8 @@ var new_temp:int = WaterManager.NEUTRALTEMP:
 	get:
 		new_temp = WaterManager.NEUTRALTEMP
 		for each in affected_by:
-			new_temp += each["temp"]
+			if each["source"] != null:
+				new_temp += each["temp"]
 		if new_temp < WaterManager.MINTEMP: return WaterManager.MINTEMP
 		if new_temp > WaterManager.MAXTEMP: return WaterManager.MAXTEMP
 		return new_temp
@@ -15,6 +16,7 @@ var affected_by:Array[Dictionary] = []
 
 
 func add_temp_source(temp_source:TempSource, _override_temp:int = 1000) -> void:
+	_remove_nulls()
 	if not _has_source(temp_source):
 		var temp:int = _override_temp if _override_temp != 1000 else temp_source.strength
 		affected_by.append({
@@ -44,3 +46,16 @@ func _get_source(temp_source:TempSource) -> Dictionary:
 		if each["source"] == temp_source:
 			return each
 	return {}
+
+
+func _remove_nulls() -> void:
+	var to_remove:Array = []
+	var i:int = 0
+	while i < affected_by.size():
+		if affected_by[i]["source"] == null:
+			to_remove.append(i)
+		i += 1
+
+	to_remove.reverse()
+	for x in to_remove:
+		affected_by.remove_at(x)

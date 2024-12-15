@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="UpgradeData" load_steps=7 format=3 uid="uid://yc6ty0yamad5"]
+
+[ext_resource type="Script" path="res://Code/Upgrades/cost_data.gd" id="1_0t52v"]
+[ext_resource type="Script" path="res://Code/Upgrades/upgrade_data.gd" id="2_7h8ti"]
+[ext_resource type="Resource" uid="uid://caomhgtnmp6fq" path="res://Data/Upgrades/Trees/Battery/batt_01.tres" id="3_vu5mx"]
+[ext_resource type="Resource" uid="uid://02eem5bo26fo" path="res://Data/Upgrades/Trees/Battery/batt_02.tres" id="4_np51g"]
+
+[sub_resource type="Resource" id="Resource_eskta"]
+script = ExtResource("1_0t52v")
+type = 0
+amount = 3
+
+[sub_resource type="Resource" id="Resource_ailm0"]
+script = ExtResource("1_0t52v")
+type = 1
+amount = 3
+
+[resource]
+script = ExtResource("2_7h8ti")
+id = "batt_heat_diss"
+title = "Heat Dissipators"
+text = "Heat dissipators reduce battery life drain by %s %."
+costs = Array[ExtResource("1_0t52v")]([SubResource("Resource_eskta"), SubResource("Resource_ailm0")])
+prerequisists = Array[ExtResource("2_7h8ti")]([ExtResource("3_vu5mx"), ExtResource("4_np51g")])
+purchased = false
+data = {
+"extra_deplete_rate": -1,
+"extra_recharge_rate": 2
+}

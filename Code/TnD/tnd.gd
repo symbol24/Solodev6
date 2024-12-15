@@ -15,17 +15,17 @@ enum Type {
 var value:int = 1
 
 
-func pickup() -> Dictionary:
-	var dict:Dictionary = {}
-
+func get_tnd_dict() -> Dictionary:
+	var dict:Dictionary
 	dict = {
 			"type": type,
 			"value": value,
 		}
-	
-	get_tree().create_timer(free_time).timeout.connect(_queue_free)
-
 	return dict
+
+
+func pickup() -> void:
+	get_tree().create_timer(free_time).timeout.connect(_queue_free)
 
 
 func _queue_free() -> void:

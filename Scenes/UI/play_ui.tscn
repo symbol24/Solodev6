@@ -30,7 +30,7 @@ layout_mode = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-text = "000"
+text = "0/0"
 vertical_alignment = 1
 
 [node name="debris_icon" parent="tnd" instance=ExtResource("2_isvsj")]
@@ -40,5 +40,5 @@ layout_mode = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-text = "000"
+text = "0/0"
 vertical_alignment = 1

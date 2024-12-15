@@ -13,7 +13,9 @@ const NEUTRALTEMP:int = 5
 
 var tiles:Array[Vector2i]
 var cells:Array[WaterCell] = []
+var cells_dict:Dictionary
 var temp_sources:Array = []
+var removed_sources:Array = []
 
 var current_interval:int = 0:
 	set(value):
@@ -36,10 +38,8 @@ func _ready() -> void:
 		var new:WaterCell = WaterCell.new()
 		new.coords = each
 		cells.append(new)
+		cells_dict[new.coords] = new
 
-	temp_sources = get_tree().get_nodes_in_group("cold_source")
-	temp_sources.append_array(get_tree().get_nodes_in_group("heat_source"))
-	
 	_update_temps()
 
 
@@ -53,13 +53,13 @@ func _physics_process(_delta: float) -> void:
 
 func _update_temps() -> void:
 	timer_active = false
+	temp_sources = get_tree().get_nodes_in_group("temp_source")
 	for each:TempSource in temp_sources:
 		var pos:Vector2i = to_local(each.global_position)
 		pos.x /= 4
 		pos.y /= 4
 		var radius:int = each.strength if each.strength >= 0 else -each.strength
 		_update_cells(pos, each, radius, each.strength)
-	timer_active = true
 
 
 func _update_cells(start_pos:Vector2i, temp_source:TempSource, radius:int, strength:int) -> void:
@@ -73,13 +73,14 @@ func _update_cells(start_pos:Vector2i, temp_source:TempSource, radius:int, stren
 			var r_squared:int = pow(radius, radius)
 			var root_dist:int = sqrt(current_distance)
 			var current_str:int = mini(strength + root_dist, 0) if strength < 0 else maxi(strength - root_dist, 0)
-			var cell:WaterCell = _get_cell(Vector2i(x, y))
-			if cell and current_distance < r_squared:
+			var cell:WaterCell = cells_dict[Vector2i(x,y)] if cells_dict.has(Vector2i(x,y)) else null
+			if cell != null and temp_source != null and current_distance < r_squared:
 				cell.add_temp_source(temp_source, current_str)
 			y += 1
-			await get_tree().process_frame
+		await get_tree().process_frame
 		y = start_pos.y - radius
 		x += 1
+	timer_active = true
 
 
 func _check_each_cell() -> void:
@@ -97,7 +98,21 @@ func _get_cell(coord:Vector2i) -> WaterCell:
 
 
 func _propagate_temp() -> void:
+	_clear_nulls_in_sources()
 	for each in temp_sources:
-		each.increase_strength()
+		if each != null: each.increase_strength()
 
 	_update_temps()
+
+
+func _clear_nulls_in_sources() -> void:
+	var to_clear:Array[int] = []
+	var i:int = 0
+	while i < temp_sources.size():
+		if temp_sources[i] == null:
+			to_clear.append(i)
+		i += 1
+	to_clear.sort()
+	to_clear.reverse()
+	for each in to_clear:
+		temp_sources.remove_at(each)

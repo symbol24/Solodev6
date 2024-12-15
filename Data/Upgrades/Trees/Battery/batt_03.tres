@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="UpgradeData" load_steps=6 format=3 uid="uid://dx3kpa43a4geh"]
+
+[ext_resource type="Script" path="res://Code/Upgrades/cost_data.gd" id="1_j4dmv"]
+[ext_resource type="Script" path="res://Code/Upgrades/upgrade_data.gd" id="2_l0ned"]
+[ext_resource type="Resource" uid="uid://02eem5bo26fo" path="res://Data/Upgrades/Trees/Battery/batt_02.tres" id="3_niquo"]
+
+[sub_resource type="Resource" id="Resource_8ck60"]
+script = ExtResource("1_j4dmv")
+type = 0
+amount = 2
+
+[sub_resource type="Resource" id="Resource_7y2wo"]
+script = ExtResource("1_j4dmv")
+type = 1
+amount = 2
+
+[resource]
+script = ExtResource("2_l0ned")
+id = "batt3"
+title = "LMO Li-Po"
+text = "Lithium Polymer battery. Increases battery life by %s % and recharge rate by %s %.."
+costs = Array[ExtResource("1_j4dmv")]([SubResource("Resource_8ck60"), SubResource("Resource_7y2wo")])
+prerequisists = Array[ExtResource("2_l0ned")]([ExtResource("3_niquo")])
+purchased = false
+data = {
+"extra_battery": 15,
+"extra_recharge_rate": 3
+}
