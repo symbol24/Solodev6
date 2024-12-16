@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://bywrm7tofmufw"]
+
+[ext_resource type="Script" path="res://Code/UI/menu_button.gd" id="1_v2ctd"]
+[ext_resource type="StyleBox" uid="uid://ci0402et66a75" path="res://Data/MM_Buttons/normal.tres" id="2_1cmh0"]
+[ext_resource type="StyleBox" uid="uid://bfox4i36wdylo" path="res://Data/MM_Buttons/hover.tres" id="3_xgil0"]
+
+[node name="menu_button" type="Control"]
+custom_minimum_size = Vector2(205, 60)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 205.0
+offset_bottom = 60.0
+mouse_filter = 2
+script = ExtResource("1_v2ctd")
+text = "text here"
+normal = ExtResource("2_1cmh0")
+hover = ExtResource("3_xgil0")
+
+[node name="panel" type="Panel" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0.03)
+layout_mode = 0
+offset_top = 10.0
+offset_right = 200.0
+offset_bottom = 50.0
+theme_override_styles/panel = ExtResource("2_1cmh0")
+
+[node name="label" type="Label" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 24)
+layout_mode = 0
+offset_left = 48.0
+offset_top = 23.0
+offset_right = 148.0
+offset_bottom = 47.0
+rotation = -0.10472
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "text here"
+horizontal_alignment = 1
+vertical_alignment = 1

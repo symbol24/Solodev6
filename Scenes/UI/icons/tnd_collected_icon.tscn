@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://dr3rk80mrrfda"]
+
+[ext_resource type="Script" path="res://Code/UI/tnd_collected_icon.gd" id="1_3c8q1"]
+[ext_resource type="Texture2D" uid="uid://c6x7eqhiitv40" path="res://Textures/UI/Icons/small_tnd_icons_trash.png" id="1_ofvpe"]
+[ext_resource type="Texture2D" uid="uid://bt4pcptl35vuq" path="res://Textures/UI/Icons/small_tnd_icons_debis.png" id="2_v0pyv"]
+
+[node name="tnd_collected_icon" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3c8q1")
+height = 20.0
+life_time = 0.75
+
+[node name="trash" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = -5.0
+offset_right = 10.0
+offset_bottom = 5.0
+texture = ExtResource("1_ofvpe")
+
+[node name="debris" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = -5.0
+offset_right = 10.0
+offset_bottom = 5.0
+texture = ExtResource("2_v0pyv")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -7.0
+offset_right = -2.0
+offset_bottom = 7.0
+theme_override_font_sizes/font_size = 16
+text = "+"

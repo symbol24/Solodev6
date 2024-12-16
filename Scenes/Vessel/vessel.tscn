@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://dssynl2bmqhew"]
+[gd_scene load_steps=13 format=3 uid="uid://dssynl2bmqhew"]
 
 [ext_resource type="Script" path="res://Code/Vessel/vessel.gd" id="1_foupp"]
-[ext_resource type="TileSet" uid="uid://bwsc5kwxv5hxq" path="res://Data/debug_tileset.tres" id="2_i3vab"]
 [ext_resource type="Script" path="res://Code/Vessel/tnd_collector.gd" id="3_tc1m6"]
 [ext_resource type="Texture2D" uid="uid://dcu1frhdkkbvq" path="res://Textures/white_pixel.png" id="4_pmob1"]
 [ext_resource type="Texture2D" uid="uid://bkvff6co3pkmv" path="res://Textures/UI/Icons/battery_icon.png" id="5_g384o"]
+[ext_resource type="Texture2D" uid="uid://dtyfnl25wrm4p" path="res://Textures/vessel.png" id="5_ks502"]
+[ext_resource type="Texture2D" uid="uid://d2xq7mtucnf0q" path="res://Textures/white_2x2.png" id="6_78khx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r7q7b"]
 radius = 8.0
@@ -17,6 +18,33 @@ height = 42.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l7fr4"]
 radius = 8.0
 height = 48.0
+
+[sub_resource type="Animation" id="Animation_jcb5g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("battery_icon:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("battery_icon:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_nj1mk"]
 resource_name = "battery"
@@ -48,33 +76,6 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_jcb5g"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("battery_icon:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("battery_icon:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5wv1u"]
 _data = {
 "RESET": SubResource("Animation_jcb5g"),
@@ -82,17 +83,13 @@ _data = {
 }
 
 [node name="Vessel" type="RigidBody2D"]
+process_mode = 1
 gravity_scale = 0.0
 lock_rotation = true
 linear_damp = 1.0
 script = ExtResource("1_foupp")
 start_speed = 100.0
 start_deplete_rate = 3
-
-[node name="vessel_sprite" type="TileMapLayer" parent="."]
-position = Vector2(-24, -8)
-tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 4, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 0, 4, 0, 2, 0, 0, 0)
-tile_set = ExtResource("2_i3vab")
 
 [node name="move_collider" type="CollisionShape2D" parent="."]
 visible = false
@@ -117,14 +114,17 @@ shape = SubResource("CapsuleShape2D_l7fr4")
 [node name="battery_timer" type="Timer" parent="."]
 unique_name_in_owner = true
 
+[node name="sprite" type="Sprite2D" parent="."]
+texture = ExtResource("5_ks502")
+
 [node name="battery" type="TextureProgressBar" parent="."]
 unique_name_in_owner = true
 modulate = Color(0, 0.572549, 0.301961, 1)
-custom_minimum_size = Vector2(40, 8)
-offset_left = -20.0
-offset_top = -4.0
-offset_right = 20.0
-offset_bottom = 4.0
+custom_minimum_size = Vector2(28, 2)
+offset_left = -14.0
+offset_top = -1.0
+offset_right = 14.0
+offset_bottom = 1.0
 value = 100.0
 nine_patch_stretch = true
 texture_progress = ExtResource("4_pmob1")
@@ -145,3 +145,44 @@ unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_5wv1u")
 }
+
+[node name="particle" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-21, -5)
+amount = 16
+texture = ExtResource("6_78khx")
+emission_shape = 1
+emission_sphere_radius = 5.0
+direction = Vector2(0, 0)
+gravity = Vector2(0, 0)
+
+[node name="particle2" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(21, -5)
+amount = 16
+texture = ExtResource("6_78khx")
+emission_shape = 1
+emission_sphere_radius = 5.0
+direction = Vector2(0, 0)
+gravity = Vector2(0, 0)
+
+[node name="particle3" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-21, 5)
+amount = 16
+texture = ExtResource("6_78khx")
+emission_shape = 1
+emission_sphere_radius = 5.0
+direction = Vector2(0, 0)
+gravity = Vector2(0, 0)
+
+[node name="particle4" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(20, 5)
+amount = 12
+lifetime = 0.5
+texture = ExtResource("6_78khx")
+emission_shape = 1
+emission_sphere_radius = 5.0
+direction = Vector2(0, 0)
+gravity = Vector2(0, 0)

@@ -18,10 +18,11 @@ amount = 5
 script = ExtResource("2_j3fxl")
 id = "batt4"
 title = "LFP Li-Po"
-text = "Lithium Polymer battery. Increases battery life by %s %."
+text = "Lithium Polymer battery. Increases battery life by %s and recharge rate by %s."
 costs = Array[ExtResource("1_8w84e")]([SubResource("Resource_0rn8f"), SubResource("Resource_ay408")])
 prerequisists = Array[ExtResource("2_j3fxl")]([ExtResource("3_ejh1y")])
 purchased = false
+win_con = true
 data = {
 "extra_battery": 25,
 "extra_recharge_rate": 3

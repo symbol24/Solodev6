@@ -1,19 +1,24 @@
 class_name PlayUi extends RiDControl
 
 
-@onready var trash_label: Label = %trash_label
-@onready var debris_label: Label = %debris_label
+@export var tnd_collected_icon:PackedScene
+
+@onready var too_much: RichTextLabel = %too_much
 
 
 func _ready() -> void:
 	super()
-	Signals.TnDCollected.connect(_update_tnd)
+	Signals.TnDCollected.connect(_spawn_tnd_icon)
+	Signals.ToggleTnDWarning.connect(_toggle_too_much)
 
 
-func _update_tnd(type:TnD.Type, value:int, cap:int) -> void:
-	var new:String = str(value) + "/" + str(cap)
-	match type:
-		TnD.Type.TRASH:
-			trash_label.text = new
-		_:
-			debris_label.text = new
+func _spawn_tnd_icon(type:TnD.Type, _value:int, _cap:int, pos:Vector2) -> void:
+	var new:TnDCollectedIcon = tnd_collected_icon.instantiate()
+	add_child(new)
+	if not new.is_node_ready(): await new.ready
+	new.global_position = pos
+	new.spawn(type)
+
+
+func _toggle_too_much(value:bool) -> void:
+	too_much.visible = value

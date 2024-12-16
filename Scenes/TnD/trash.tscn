@@ -1,24 +1,20 @@
 [gd_scene load_steps=5 format=3 uid="uid://d2gg2qhvhdpjo"]
 
 [ext_resource type="Script" path="res://Code/TnD/tnd.gd" id="1_0iw2i"]
-[ext_resource type="TileSet" uid="uid://bwsc5kwxv5hxq" path="res://Data/debug_tileset.tres" id="1_3ax3o"]
+[ext_resource type="Texture2D" uid="uid://c0npxlior1fv8" path="res://Textures/trash_object.png" id="2_bmck8"]
 [ext_resource type="PackedScene" uid="uid://3jf344h6dlta" path="res://Scenes/Sources/heat_source.tscn" id="3_fbt20"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x8cif"]
-radius = 4.0
-height = 14.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_kdlc4"]
+radius = 7.0
 
 [node name="Trash" type="Area2D"]
 script = ExtResource("1_0iw2i")
 
-[node name="visuals" type="TileMapLayer" parent="."]
-unique_name_in_owner = true
-position = Vector2(-8, -8)
-tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 25, 0, 7, 0, 0, 0)
-tile_set = ExtResource("1_3ax3o")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_bmck8")
 
 [node name="pickup_collider" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
-shape = SubResource("CapsuleShape2D_x8cif")
+shape = SubResource("CircleShape2D_kdlc4")
 
 [node name="heat_source" parent="." instance=ExtResource("3_fbt20")]

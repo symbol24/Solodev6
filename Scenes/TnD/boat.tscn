@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dx2auww0xrnes"]
+
+[ext_resource type="Script" path="res://Code/TnD/boat.gd" id="1_xnvr6"]
+[ext_resource type="Texture2D" uid="uid://ciqysomraqyu7" path="res://Textures/boats/boat_cargo1.png" id="2_vgpos"]
+[ext_resource type="Texture2D" uid="uid://d2xq7mtucnf0q" path="res://Textures/white_2x2.png" id="3_pmjsd"]
+
+[node name="boat" type="Node2D"]
+script = ExtResource("1_xnvr6")
+delay_range = Array[float]([2.0, 6.0])
+spawn_range = Array[float]([1.0, 2.0])
+
+[node name="visuals" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -10)
+texture = ExtResource("2_vgpos")
+
+[node name="particle" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-23, 4)
+amount = 16
+texture = ExtResource("3_pmjsd")
+emission_shape = 1
+emission_sphere_radius = 5.0
+direction = Vector2(0, 0)
+gravity = Vector2(0, 0)

@@ -9,6 +9,7 @@ class_name UpgradeData extends Resource
 @export var texture:CompressedTexture2D
 
 @export var purchased:bool = false
+@export var win_con:bool = false
 
 @export var data:Dictionary = {}
 
@@ -19,6 +20,7 @@ var can_be_purchased:bool:
 			if not each.purchased: can_be_purchased = false
 		return can_be_purchased
 
+var displayed_in_pause:bool = false
 
 func get_cost_dict() -> Dictionary:
 	var trash:int = 0

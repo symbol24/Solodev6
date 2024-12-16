@@ -12,11 +12,12 @@ amount = 2
 [resource]
 script = ExtResource("2_42w62")
 id = "scoop_2"
-title = "Intermediate Scoop"
-text = "Increases scoop range by %s %."
+title = "Basic Scoop"
+text = "Increases scoop height by %s and range by %s."
 costs = Array[ExtResource("1_atpxn")]([SubResource("Resource_c14re")])
 prerequisists = Array[ExtResource("2_42w62")]([ExtResource("3_byw7n")])
 purchased = false
+win_con = false
 data = {
 "height": 2,
 "radius": 2

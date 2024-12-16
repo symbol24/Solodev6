@@ -18,10 +18,11 @@ amount = 6
 script = ExtResource("2_jq405")
 id = "shell_3"
 title = "Advanced Hull"
-text = "Reduces drag coeficient by %s %."
+text = "Reduces drag coeficient by %s."
 costs = Array[ExtResource("1_k0qyl")]([SubResource("Resource_g0yed"), SubResource("Resource_egvof")])
 prerequisists = Array[ExtResource("2_jq405")]([ExtResource("3_j3vfu")])
 purchased = false
+win_con = false
 data = {
 "extra_damp": -0.05
 }

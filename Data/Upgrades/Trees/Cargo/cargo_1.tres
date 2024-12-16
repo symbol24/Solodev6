@@ -6,9 +6,10 @@
 [resource]
 script = ExtResource("2_ks4ds")
 id = "cargo_1"
-title = "Starter Cargo Hold"
+title = "Starter Cargo"
 text = "Small but not space efficient."
 costs = Array[ExtResource("1_kek3e")]([])
 prerequisists = Array[ExtResource("2_ks4ds")]([])
 purchased = true
+win_con = false
 data = {}

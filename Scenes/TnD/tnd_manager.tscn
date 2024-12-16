@@ -1,0 +1,11 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpow37mvpdedv"]
+
+[ext_resource type="Script" path="res://Code/TnD/tnd_manager.gd" id="1_eyv0m"]
+[ext_resource type="Texture2D" uid="uid://cshfg77qy2jcp" path="res://Textures/boats/boat_cargo2.png" id="2_5lmb4"]
+[ext_resource type="PackedScene" uid="uid://dx2auww0xrnes" path="res://Scenes/TnD/boat.tscn" id="2_lefq7"]
+[ext_resource type="Texture2D" uid="uid://bxfasn4l2s4oe" path="res://Textures/boats/boat_cargo3.png" id="3_xt7an"]
+
+[node name="tnd_manager" type="Node2D"]
+script = ExtResource("1_eyv0m")
+boats = Array[CompressedTexture2D]([ExtResource("2_5lmb4"), ExtResource("3_xt7an")])
+boat_scene = ExtResource("2_lefq7")

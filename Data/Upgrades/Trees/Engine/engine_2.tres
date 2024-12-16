@@ -17,11 +17,12 @@ amount = 3
 [resource]
 script = ExtResource("2_rty5q")
 id = "engine_2"
-title = "Intermediate Engine"
-text = "A faster engine by %s %, but comes at a cost of battery life drain of %s %."
+title = "Basic Engine"
+text = "A faster engine by %s, but comes at a cost of battery life drain of %s."
 costs = Array[ExtResource("1_iecql")]([SubResource("Resource_es85i"), SubResource("Resource_xh4qd")])
 prerequisists = Array[ExtResource("2_rty5q")]([ExtResource("3_igasv")])
 purchased = false
+win_con = false
 data = {
 "extra_deplete_rate": 2.0,
 "extra_speed": 10.0

@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://yeinov04qdsv"]
+
+[ext_resource type="Script" path="res://Code/UI/loading_screen.gd" id="1_u77qr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g33xf"]
+bg_color = Color(0.121569, 0.121569, 0.121569, 1)
+
+[node name="loading_screen" type="Control"]
+process_mode = 3
+custom_minimum_size = Vector2(640, 360)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_u77qr")
+text_delay = 0.5
+id = "loading_screen"
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+process_mode = 3
+custom_minimum_size = Vector2(640, 360)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_g33xf")
+
+[node name="stuff_layer" type="Control" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="loading_text" type="Label" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -60.0
+offset_right = -65.0
+offset_bottom = -37.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Loading..."
+visible_ratio = -0.1

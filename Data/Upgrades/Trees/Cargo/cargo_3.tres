@@ -17,11 +17,12 @@ amount = 3
 [resource]
 script = ExtResource("2_3emnq")
 id = "cargo_3"
-title = "Advanced Cargo Hold"
-text = "Increases space for %s trash and debris. Reduces speed by %s %, while increasing drag by %s %."
+title = "Advanced Cargo"
+text = "Increases space for %s trash and  %s debris. Reduces speed by %s, while increasing drag by %s."
 costs = Array[ExtResource("1_n5t2v")]([SubResource("Resource_52rvg"), SubResource("Resource_8iydp")])
 prerequisists = Array[ExtResource("2_3emnq")]([ExtResource("3_48r7y")])
 purchased = false
+win_con = false
 data = {
 "extra_damp": 0.1,
 "extra_debris_cap": 3,

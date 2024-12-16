@@ -19,10 +19,11 @@ amount = 3
 script = ExtResource("2_7h8ti")
 id = "batt_heat_diss"
 title = "Heat Dissipators"
-text = "Heat dissipators reduce battery life drain by %s %."
+text = "Heat dissipators reduce battery life drain by %s and increases recharge rate by %s.."
 costs = Array[ExtResource("1_0t52v")]([SubResource("Resource_eskta"), SubResource("Resource_ailm0")])
 prerequisists = Array[ExtResource("2_7h8ti")]([ExtResource("3_vu5mx"), ExtResource("4_np51g")])
 purchased = false
+win_con = false
 data = {
 "extra_deplete_rate": -1,
 "extra_recharge_rate": 2

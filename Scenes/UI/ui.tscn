@@ -1,0 +1,52 @@
+[gd_scene load_steps=12 format=3 uid="uid://db206aptvvfi"]
+
+[ext_resource type="Script" path="res://Code/UI/autoload/ui.gd" id="1_gy60i"]
+[ext_resource type="PackedScene" uid="uid://bb6e0rc8k6lhs" path="res://Scenes/UI/main_menu.tscn" id="2_3lewx"]
+[ext_resource type="PackedScene" uid="uid://0a1hegvbh8ly" path="res://Scenes/UI/play_ui.tscn" id="2_sy8wt"]
+[ext_resource type="PackedScene" uid="uid://dbj61clwsif2i" path="res://Scenes/UI/base_menu.tscn" id="3_4xifl"]
+[ext_resource type="PackedScene" uid="uid://61yojjc7kc47" path="res://Scenes/UI/settings.tscn" id="3_r8co1"]
+[ext_resource type="PackedScene" uid="uid://dtms0ymrm0b2i" path="res://Scenes/UI/credits.tscn" id="4_kpgrh"]
+[ext_resource type="PackedScene" uid="uid://b7f8kv326clqu" path="res://Scenes/UI/Debug/debug_ui.tscn" id="4_vf8pr"]
+[ext_resource type="PackedScene" uid="uid://c2v3m71t15ok0" path="res://Scenes/UI/lose_screen.tscn" id="5_ercd4"]
+[ext_resource type="PackedScene" uid="uid://bbviiwf2ey7cw" path="res://Scenes/UI/win_screen.tscn" id="5_oju2s"]
+[ext_resource type="PackedScene" uid="uid://pq8bo54x34mm" path="res://Scenes/UI/pause_menu.tscn" id="6_oky3b"]
+[ext_resource type="PackedScene" uid="uid://yeinov04qdsv" path="res://Scenes/UI/loading_screen.tscn" id="7_lvn2h"]
+
+[node name="Ui" type="CanvasLayer"]
+script = ExtResource("1_gy60i")
+
+[node name="main_menu" parent="." instance=ExtResource("2_3lewx")]
+visible = false
+
+[node name="settings" parent="." instance=ExtResource("3_r8co1")]
+visible = false
+
+[node name="credits" parent="." instance=ExtResource("4_kpgrh")]
+visible = false
+
+[node name="play_ui" parent="." instance=ExtResource("2_sy8wt")]
+visible = false
+mouse_filter = 2
+
+[node name="base_menu" parent="." instance=ExtResource("3_4xifl")]
+visible = false
+
+[node name="win_screen" parent="." instance=ExtResource("5_oju2s")]
+visible = false
+
+[node name="lose_screen" parent="." instance=ExtResource("5_ercd4")]
+visible = false
+
+[node name="pause_menu" parent="." instance=ExtResource("6_oky3b")]
+visible = false
+
+[node name="loading_screen" parent="." instance=ExtResource("7_lvn2h")]
+visible = false
+z_index = 4000
+z_as_relative = false
+
+[node name="Debug" parent="." instance=ExtResource("4_vf8pr")]
+process_mode = 3
+visible = false
+offset_right = 640.0
+offset_bottom = 360.0

@@ -18,11 +18,11 @@ amount = 10
 script = ExtResource("2_wmk02")
 id = "engine_4"
 title = "Premium Engine"
-text = "Comes with the incredible speed increase of %s %."
+text = "Comes with the incredible speed increase of %s."
 costs = Array[ExtResource("1_2s1r2")]([SubResource("Resource_8kxh0"), SubResource("Resource_x27g7")])
 prerequisists = Array[ExtResource("2_wmk02")]([ExtResource("3_fk5qy")])
 purchased = false
+win_con = true
 data = {
-"extra_deplete_rate": 0.0,
 "extra_speed": 25.0
 }

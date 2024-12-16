@@ -21,12 +21,14 @@ custom_minimum_size = Vector2(60, 10)
 layout_mode = 0
 offset_right = 60.0
 offset_bottom = 10.0
+mouse_filter = 2
 theme_override_constants/separation = 0
 
 [node name="trash_icon" type="TextureRect" parent="costs"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("2_2hrwi")
 
 [node name="trash_cost" type="Label" parent="costs"]
@@ -34,8 +36,8 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(20, 10)
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 6
-text = "0"
+theme_override_font_sizes/font_size = 10
+text = "00/00"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -43,6 +45,7 @@ vertical_alignment = 1
 unique_name_in_owner = true
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("3_0sg7a")
 
 [node name="debris_cost" type="Label" parent="costs"]
@@ -50,8 +53,8 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(20, 10)
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 6
-text = "0"
+theme_override_font_sizes/font_size = 10
+text = "15/15"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -62,6 +65,7 @@ layout_mode = 0
 offset_top = 10.0
 offset_right = 60.0
 offset_bottom = 90.0
+mouse_filter = 2
 texture = ExtResource("2_iw1qp")
 
 [node name="outline" type="TextureRect" parent="."]
@@ -71,6 +75,7 @@ layout_mode = 0
 offset_top = 10.0
 offset_right = 60.0
 offset_bottom = 90.0
+mouse_filter = 2
 texture = ExtResource("1_o7f03")
 
 [node name="title" type="Label" parent="."]
@@ -80,7 +85,27 @@ layout_mode = 0
 offset_top = 90.0
 offset_right = 60.0
 offset_bottom = 100.0
-theme_override_font_sizes/font_size = 6
+theme_override_font_sizes/font_size = 10
 text = "title here"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="panel" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(60, 80)
+layout_mode = 0
+offset_top = 10.0
+offset_right = 60.0
+offset_bottom = 90.0
+mouse_filter = 2
+
+[node name="text" type="Label" parent="panel"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

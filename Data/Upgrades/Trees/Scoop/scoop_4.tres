@@ -18,10 +18,11 @@ amount = 4
 script = ExtResource("2_got2j")
 id = "scoop_4"
 title = "Premium Scoop"
-text = "Increases scoop range by %s %."
+text = "Increases scoop height by %s and range by %s."
 costs = Array[ExtResource("1_mp4l5")]([SubResource("Resource_7cpon"), SubResource("Resource_dg3l1")])
 prerequisists = Array[ExtResource("2_got2j")]([ExtResource("3_gd755")])
 purchased = false
+win_con = true
 data = {
 "height": 2,
 "radius": 2

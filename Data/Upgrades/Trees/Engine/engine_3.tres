@@ -18,11 +18,11 @@ amount = 6
 script = ExtResource("2_ympsk")
 id = "engine_3"
 title = "Advanced Engine"
-text = "No longer increases battery life drain, but only increases peed by %s %."
+text = "No longer increases battery life drain, but only increases speed by %s."
 costs = Array[ExtResource("1_ty6p1")]([SubResource("Resource_bgus8"), SubResource("Resource_g1pet")])
 prerequisists = Array[ExtResource("2_ympsk")]([ExtResource("3_myoy3")])
 purchased = false
+win_con = false
 data = {
-"extra_deplete_rate": 0.0,
 "extra_speed": 20.0
 }

@@ -7,6 +7,7 @@ class_name Vessel extends RigidBody2D
 @export var start_battery:int = 100
 @export var start_recharge_rate:int = 5
 @export var start_deplete_rate:int = 2
+@onready var particles:Array[CPUParticles2D] = [%particle, %particle2, %particle3, %particle4]
 
 @onready var tnd_collector_collider: CollisionShape2D = %tnd_collector_collider
 @onready var battery_timer: Timer = %battery_timer
@@ -29,7 +30,8 @@ var debris_capacity:int:
 	get: return start_debris_cap + extra_debris_cap
 var start_scoop:Vector2i
 var extra_scoop_size:Vector2i = Vector2i.ZERO
-var scoop_size:Vector2i = start_scoop + extra_scoop_size
+var scoop_size:Vector2i:
+	get: return start_scoop + extra_scoop_size
 var extra_battery:int = 0
 var max_battery:int:
 	get: return start_battery + extra_battery
@@ -41,10 +43,18 @@ var current_battery:int = start_battery:
 var extra_recharge_rate:int = 0
 var recharge_rate:int:
 	get: return start_recharge_rate + extra_recharge_rate if recharging else 0
+var max_recharge_rate:int:
+	get: return start_recharge_rate + extra_recharge_rate
 var extra_deplete_rate:int = 0
 var deplete_rate:int:
 	get: return start_deplete_rate + extra_deplete_rate
-var extra_damp:float = 0.0
+var starting_damp:float = 1.0
+var extra_damp:float = 0.0:
+	set(value):
+		extra_damp = value
+		linear_damp = current_damp
+var current_damp:int:
+	get: return starting_damp + extra_damp
 
 var active_upgrades:Array[UpgradeData] = []
 
@@ -66,6 +76,7 @@ func _ready() -> void:
 	battery_timer.timeout.connect(_battery_timeout)
 	start_scoop = Vector2(tnd_collector_collider.shape.radius, tnd_collector_collider.shape.height)
 	current_battery = start_battery
+	starting_damp = linear_damp
 	battery_timer.start()
 	Signals.VesselReady.emit(self)
 	
@@ -83,19 +94,21 @@ func add_tnd(type:TnD.Type, value:int) -> void:
 	match type:
 		TnD.Type.TRASH:
 			collected_trash += value
-			Signals.TnDCollected.emit(type, collected_trash, trash_capacity)
+			Signals.TnDCollected.emit(type, collected_trash, trash_capacity, global_position)
 		_:
 			collected_debris += value
-			Signals.TnDCollected.emit(type, collected_debris, debris_capacity)
+			Signals.TnDCollected.emit(type, collected_debris, debris_capacity, global_position)
 
 
 func enter_base() -> void:
 	can_move = false
+	get_tree().paused = true
 	Signals.ToggleDisplay.emit("base_menu", "play_ui", true)
 
 
 func _exit_base_menu() -> void:
 	can_move = true
+	get_tree().paused = false
 
 
 func _update_scoop_size() -> void:
@@ -116,11 +129,15 @@ func _battery_timeout() -> void:
 
 func _battery_dead() -> void:
 	battery_dead = true
+	for each in particles:
+		each.emitting = false
 	_toggle_icon("battery", true)
 
 
 func _battery_refreshed() -> void:
 	battery_dead = false
+	for each in particles:
+		each.emitting = true
 	_toggle_icon("battery", false)
 
 
@@ -152,8 +169,10 @@ func _upgrade_purchased(upgrade:UpgradeData) -> void:
 
 	var keys = upgrade.data.keys()
 	for k in keys:
-		print("checking ", k)
 		if get(k) != null:
 			var value = get(k)
 			set(k, value + upgrade.data[k])
-			print("updated ", k, " with ", upgrade.data[k], " new value: ", get(k))
+			#print("updated ", k, " with ", upgrade.data[k], " new value: ", get(k))
+	
+	active_upgrades.append(upgrade)
+	if upgrade.win_con: Signals.AddToWinCon.emit()

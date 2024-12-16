@@ -13,10 +13,11 @@ amount = 1
 script = ExtResource("2_qvs06")
 id = "batt2"
 title = "NCA Li-Po"
-text = "Lithium Polymer battery. Increases battery life by %s %."
+text = "Lithium Polymer battery. Increases battery life by %s."
 costs = Array[ExtResource("1_qhhyy")]([SubResource("Resource_0lgco")])
 prerequisists = Array[ExtResource("2_qvs06")]([ExtResource("3_shsw5")])
 purchased = false
+win_con = false
 data = {
 "extra_battery": 10
 }

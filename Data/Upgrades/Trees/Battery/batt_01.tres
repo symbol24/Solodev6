@@ -11,4 +11,5 @@ text = "Nickle-Metal Hydride standard battery. Low recharge rate, low disipatiom
 costs = Array[ExtResource("1_dr2ej")]([])
 prerequisists = Array[ExtResource("2_thbdg")]([])
 purchased = true
+win_con = false
 data = {}

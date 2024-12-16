@@ -19,8 +19,12 @@ amount = 3
 script = ExtResource("2_anpha")
 id = "batt_controlle"
 title = "Battery Controller"
-text = "Adds a controller to the battery to reduce battery life drain by %s %, and increase recharge rate by %s %."
+text = "Reduces battery life drain by %s, and increase recharge rate by %s."
 costs = Array[ExtResource("1_1ymxk")]([SubResource("Resource_r12f5"), SubResource("Resource_ek3wi")])
 prerequisists = Array[ExtResource("2_anpha")]([ExtResource("3_dfox7"), ExtResource("4_r78tc")])
 purchased = false
-data = {}
+win_con = false
+data = {
+"extra_deplete_rate": -1,
+"extra_recharge_rate": 1
+}

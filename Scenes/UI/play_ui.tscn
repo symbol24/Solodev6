@@ -1,44 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://0a1hegvbh8ly"]
+[gd_scene load_steps=3 format=3 uid="uid://0a1hegvbh8ly"]
 
-[ext_resource type="PackedScene" uid="uid://cvk0ulu4qcur4" path="res://Scenes/UI/icons/trash_icon.tscn" id="1_m538j"]
 [ext_resource type="Script" path="res://Code/UI/play_ui.gd" id="1_nym5l"]
-[ext_resource type="PackedScene" uid="uid://dpeukkrkjqpqy" path="res://Scenes/UI/icons/debris_icon.tscn" id="2_isvsj"]
+[ext_resource type="PackedScene" uid="uid://dr3rk80mrrfda" path="res://Scenes/UI/icons/tnd_collected_icon.tscn" id="2_cq6ay"]
 
 [node name="play_ui" type="Control"]
+process_mode = 3
 custom_minimum_size = Vector2(640, 360)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_nym5l")
+tnd_collected_icon = ExtResource("2_cq6ay")
 id = "play_ui"
 
-[node name="tnd" type="HBoxContainer" parent="."]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -156.0
-offset_bottom = 32.0
-grow_horizontal = 0
-
-[node name="trash_icon" parent="tnd" instance=ExtResource("1_m538j")]
-layout_mode = 2
-
-[node name="trash_label" type="Label" parent="tnd"]
+[node name="too_much" type="RichTextLabel" parent="."]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(40, 0)
-layout_mode = 2
-text = "0/0"
-vertical_alignment = 1
-
-[node name="debris_icon" parent="tnd" instance=ExtResource("2_isvsj")]
-layout_mode = 2
-
-[node name="debris_label" type="Label" parent="tnd"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(40, 0)
-layout_mode = 2
-text = "0/0"
-vertical_alignment = 1
+visible = false
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 0
+offset_left = 200.0
+offset_top = 121.0
+offset_right = 440.0
+offset_bottom = 176.0
+bbcode_enabled = true
+text = "[center][pulse][color=red]WARNING! 
+Too much Trash and Debris[/color][/pulse][/center]"
