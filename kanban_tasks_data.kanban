@@ -10,19 +10,20 @@
 		{
 			"uuid": "43ff10e0-48b4-47d2-8384-6697521639da",
 			"title": "Todo",
-			"tasks": []
+			"tasks": [
+				"453c4d06-7d71-496c-9e50-77cbcb2d7b2c"
+			]
 		},
 		{
 			"uuid": "a601bb49-0a3a-46d3-aaa9-6b6fa7b17512",
 			"title": "Doing",
-			"tasks": [
-				"403b7ab2-a4b7-4ecc-aed1-09b38b9d58ca"
-			]
+			"tasks": []
 		},
 		{
 			"uuid": "2208b4a1-4f52-4d74-98ba-8c8f6696ab42",
 			"title": "Done",
 			"tasks": [
+				"403b7ab2-a4b7-4ecc-aed1-09b38b9d58ca",
 				"74854118-c161-4e14-bdc9-c838f417a9c8",
 				"54fab4e7-48b9-4753-8d9d-53a8bbe4d9a9",
 				"71d9a4b3-a091-4684-8820-ffba992c8bcd",
@@ -102,6 +103,13 @@
 		{
 			"uuid": "dc6f69d3-641d-4408-a8f6-12c9081de3e2",
 			"title": "Scene Manager",
+			"description": "",
+			"category": "61d8e483-8695-4bd0-ae39-dbeb76598182",
+			"steps": []
+		},
+		{
+			"uuid": "453c4d06-7d71-496c-9e50-77cbcb2d7b2c",
+			"title": "controls in main menu and in pause menu",
 			"description": "",
 			"category": "61d8e483-8695-4bd0-ae39-dbeb76598182",
 			"steps": []

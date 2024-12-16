@@ -15,6 +15,7 @@ id = "credits"
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(640, 360)
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_md63f")
@@ -96,11 +97,27 @@ theme_override_constants/separation = 10
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 text = "Font:"
+horizontal_alignment = 2
 
 [node name="Label2" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.896745, 0.447942, 0.39203, 1)
 text = "https://managore.itch.io/m5x7"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Music:"
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.896745, 0.447942, 0.39203, 1)
+text = "https://jhawk-studios.itch.io/deep-down-music-pack"
 
 [node name="spacer2" type="Control" parent="PanelContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(80, 0)
