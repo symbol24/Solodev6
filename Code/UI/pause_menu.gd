@@ -20,6 +20,7 @@ class_name PauseMenu extends RiDControl
 var all_upgrades:Array = []
 var displayed_upgrades:Array[UpgradeData] = []
 var vessel:Vessel
+var current_volume:float = 0.0
 
 
 func _ready() -> void:
@@ -29,6 +30,7 @@ func _ready() -> void:
 	pause_close_btn.pressed.connect(_close)
 	pause_mm_btn.pressed.connect(_main_menu)
 	volume.value_changed.connect(_volume_changed)
+	current_volume = Audio.default.music_volume
 
 
 func _set_vessel(_vessel:Vessel) -> void:
@@ -50,7 +52,7 @@ func _toggle_display(to_toggle:String, _previous:String, is_displayed:bool = tru
 		visible = is_displayed
 		_update_stats()
 		_update_upgrades()
-		volume.value = Audio.get_current_volume_of_bus("Music")
+		volume.value = current_volume
 	else:
 		hide()
 
@@ -83,4 +85,5 @@ func _update_upgrades() -> void:
 
 
 func _volume_changed(value:float) -> void:
-	Audio.BusVolumeUpdate.emit("Music", volume.value)
+	current_volume = volume.value
+	Audio.BusVolumeUpdate.emit("Music", current_volume)

@@ -172,9 +172,9 @@ func _create_audio_data() -> AudioData:
 			push_error("Unable to create Audio folder. Error %s received." % error)
 
 	if dir.dir_exists("Audio"):
-		var error = FileAccess.file_exists(DEFAULT)
-		if not error:
-			error = ResourceSaver.save(result, DEFAULT)
+		var exists = FileAccess.file_exists(DEFAULT)
+		if not exists:
+			var error = ResourceSaver.save(result, DEFAULT)
 			if error != OK:
 				push_error("Unable to save new AudioData. Error: ", error)
 		else:
